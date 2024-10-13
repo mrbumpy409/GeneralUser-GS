@@ -1,0 +1,11 @@
+[Desktop Entry]
+Exec=fluidsynth
+MimeType=audio/midi;
+Name=FluidSynth
+Categories=Audio;AudioVideo;Midi;X-Alsa;X-Jack;
+Keywords=Audio;MIDI;ALSA;JACK;FluidSynth;SoundFont;Synthesizer;Sampler;SF2;
+NoDisplay=false
+StartupNotify=true
+Terminal=1
+TerminalOptions=
+Type=Application
