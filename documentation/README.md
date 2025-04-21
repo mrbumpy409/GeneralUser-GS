@@ -1,7 +1,7 @@
 ﻿# GeneralUser GS Documentation
 
-_GeneralUser GS: **version 2.0.1** (10/15/2024)_  
-_Documentation: **revision 3** (10/15/2024)_  
+_GeneralUser GS: **version 2.0.2** (4/21/2025)_  
+_Documentation: **revision 4** (4/21/2025)_  
 ***by S. Christian Collins***
 
 Updates to this documentation will be published on [my GeneralUser GS web page](https://www.schristiancollins.com/generaluser) and viewable online at [GitHub](https://github.com/mrbumpy409/GeneralUser-GS/blob/main/documentation/README.md).
@@ -67,7 +67,7 @@ GeneralUser GS requires BASSMIDI version 2.4.14.28 or later. BASSMIDI versions e
 
 If the above requirements aren’t met, many instruments will sound too bright and some will behave incorrectly. Applications based on BASSMIDI may come bundled with an older version of BASSMIDI, in which case you can usually download an updated version of the BASSMIDI engine to replace it with. This is easy to do, and instructions for each recommended application are included in the sections below.
 
-You can download the latest release of BASSMIDI by scrolling down to the “Add-ons” section of [the BASS audio library homepage](https://www.un4seen.com/bass.html). As of the writing of this documentation, the latest release version is 2.4.14.1. If this is still the case, you will need to instead download the beta version linked on [this forum post](https://www.un4seen.com/forum/?topic=19224.0). The downloaded zip file will contain two copies of `bassmidi.dll`. The copy inside the `x64` folder is the 64-bit version, and the copy outside of that folder is the 32-bit version.
+You can download the latest release of BASSMIDI by scrolling down to the “Add-ons” section of [the BASS audio library homepage](https://www.un4seen.com/bass.html). The downloaded zip file will contain two copies of `bassmidi.dll`. The copy inside the `x64` folder is the 64-bit version, and the copy outside of that folder is the 32-bit version.
 
 A further improvement to the sound can be achieved by adjusting the reverb and chorus settings as follows, where permitted:
 
@@ -85,9 +85,9 @@ Notable features of FluidSynth include:
 * The most accurate SoundFont rendering available, including full modulator support.
 * Excellent-sounding reverb and chorus engine (when configured correctly).
 
-FluidSynth v2.3 or later is recommended for use with GeneralUser GS, but earlier versions should sound pretty good as well. For best sound quality, set FluidSynth’s sample interpolation method to “7th order” (the default is “4th order”). If CPU usage is a concern, then leave it at “4th order”.
+FluidSynth v2.3 or later is recommended for use with GeneralUser GS, but earlier versions should sound pretty good as well.
 
-The default reverb and chorus settings in FluidSynth v2.3.x and earlier are not very good (chorus is too aggressive, reverb sounds like a small room). FluidSynth v2.4 [will fix this](https://github.com/FluidSynth/fluidsynth/issues/1282) by providing much nicer defaults. Fortunately, these new effects settings can be used in earlier versions of FluidSynth in programs that allow configuration of the reverb and chorus engines.
+The default reverb and chorus settings in FluidSynth v2.3.x and earlier are not very good (chorus is too aggressive, reverb sounds like a small room). FluidSynth v2.4 [fixes this](https://github.com/FluidSynth/fluidsynth/issues/1282) by providing much nicer defaults. Fortunately, these new effects settings can be used in earlier versions of FluidSynth in programs that allow configuration of the reverb and chorus engines.
 
 Here is a table comparing the default reverb and chorus settings between FluidSynth 2.3.x, 2.4, and my recommended settings for use with GeneralUser GS:
 
@@ -124,12 +124,9 @@ Some may be turned off by [FluidSynth Plugin](https://github.com/prof-spock/Flui
    
    For the AU plugin on macOS, copy the `FluidSynthPlugin.component` folder into `/Library/Audio/Plug-ins/Components`.
 
-4. *Windows only:* Recent Windows versions of FluidSynth (v2.3.5 and earlier) have a [broken chorus effect](https://github.com/FluidSynth/fluidsynth/issues/1331). This has been fixed in FluidSynth v2.3.6. The current version of FluidSynth Plugin (v0.7.1) comes bundled with FluidSynth v2.3.5, so you will need to manually upgrade the FluidSynth library to v2.3.6 if you want the chorus to work properly. Follow these steps:
-   1. Download the latest Windows release of FluidSynth from [the FluidSynth Github page](https://github.com/FluidSynth/fluidsynth/releases).
-   2. Open the downloaded .zip file and copy the `/bin/libfluidsynth-3.dll` file into `C:\Program Files\Common Files\VST3\FluidSynthPlugin.vst3\Contents\x86_64-win\`, replacing the copy found there.
-5. *Linux only:* Install your system’s libfluidsynth package (`libfluidsynth3` in ubuntu, `fluidsynth-libs` in Fedora). Also note that FluidSynth Plugin might not work on older Linux OS versions (requires Ubuntu 23.10 or later; I’m not sure about Fedora or others).
-6. Open your DAW and let it scan for new/updated VST plugins. You should now be able to add “FluidSynthPlugin (DrTT)” to a track as a virtual instrument.
-7. *macOS only:* There is a good chance macOS will tell you it can’t open FluidSynth Plugin since it is from an unverified publisher. Unfortunately, the usual step of allowing the program to run via “System Preferences” → “Security & Privacy” won’t work for VSTs. Instead, you will need to open the Terminal app (found in the Utilities folder) and run the following command (assuming you placed the VST/AU folder in the default location in step 3):
+4. *Linux only:* Install your system’s libfluidsynth package (`libfluidsynth3` in ubuntu, `fluidsynth-libs` in Fedora). Also note that FluidSynth Plugin might not work on older Linux OS versions (requires Ubuntu 23.10 or later; I’m not sure about Fedora or others).
+5. Open your DAW and let it scan for new/updated VST plugins. You should now be able to add “FluidSynthPlugin (DrTT)” to a track as a virtual instrument.
+6. *macOS only:* There is a good chance macOS will tell you it can’t open FluidSynth Plugin since it is from an unverified publisher. Unfortunately, the usual step of allowing the program to run via “System Preferences” → “Security & Privacy” won’t work for VSTs. Instead, you will need to open the Terminal app (found in the Utilities folder) and run the following command (assuming you placed the VST/AU folder in the default location in step 3):
    
    For the VST3 plugin:
    ```
@@ -143,13 +140,12 @@ Some may be turned off by [FluidSynth Plugin](https://github.com/prof-spock/Flui
    
    Then, re-scan the VST plugins in your DAW.
 
-8. After adding “FluidSynthPlugin (DrTT)” to a track in your DAW, right-click in the FluidSynth Plugin GUI and choose “Select SoundFont File...”. A file selection window should appear.
-9. Find and choose `GeneralUser-GS.sf2` and click “Open”.
-10. Click “Confirm” to load the SoundFont.<div style="page-break-after: always"></div>
-11. Paste the following recommended settings into the plugin’s text box:
+7. After adding “FluidSynthPlugin (DrTT)” to a track in your DAW, right-click in the FluidSynth Plugin GUI and choose “Select SoundFont File...”. A file selection window should appear.
+8. Find and choose `GeneralUser-GS.sf2` and click “Open”.
+9. Click “Confirm” to load the SoundFont.
+10. Paste the following recommended settings into the plugin’s text box:
     ```
     synth.gain = 1.0
-    synth.interpolation-method = 7
     synth.reverb.active = 1
     synth.chorus.active = 1
     
@@ -163,8 +159,8 @@ Some may be turned off by [FluidSynth Plugin](https://github.com/prof-spock/Flui
     synth.chorus.nr = 4
     synth.chorus.speed = 0.36
     ```
-12. Press “Confirm” again.
-13. Right-click in the FluidSynthPlugin GUI and choose “Select Program...” to chose your desired preset. Click “OK” and then “Confirm” to activate the preset.
+11. Press “Confirm” again.
+12. Right-click in the FluidSynthPlugin GUI and choose “Select Program...” to chose your desired preset. Click “OK” and then “Confirm” to activate the preset.
 
 Alternatively to the last step, you can opt not to choose a preset and instead rely on preset change MIDI messages to do so. Also, if you prefer to use your DAW’s effects plugins instead of FluidSynth’s, you can set both `synth.reverb.active` and `synth.chorus.active` to **0**, leaving out the rest of the reverb and chorus settings lines. Whatever your preferred settings end up being, you can save the plugin configuration as a preset to avoid having to write the values in every time.
 
@@ -172,7 +168,7 @@ Alternatively to the last step, you can opt not to choose a preset and instead r
 
 As should be obvious from the plugin name, [BassMidi VSTi](https://falcosoft.hu/softwares.html#bassmidi_vsti) is based on the BASSMIDI library. GeneralUser GS requires BassMidi VSTi version 1.6 or later, and “Do not emulate SB HW limits” must be enabled in “Soundfont/Bassmidi Setup”. Future plugin versions will likely make the Sound Blaster hardware emulation opt-in rather than opt-out, so be sure to read the wording of the option. Basically, you *don’t* want Sound Blaster hardware limit emulation when using GeneralUser GS.
 
-BassMidi VSTi is the only plugin on this list that is multi-timbral, meaning you can have different instruments loaded on each of its 16 MIDI channels.<div style="page-break-after: always"></div>
+BassMidi VSTi is the only plugin on this list that is multi-timbral, meaning you can have different instruments loaded on each of its 16 MIDI channels.
 
 To use GeneralUser GS with BassMidi VSTi:
 
@@ -185,6 +181,8 @@ To use GeneralUser GS with BassMidi VSTi:
 7. Set Chorus level to **44**.
 8. Click “OK”.
 
+<div style="page-break-after: always"></div>
+
 #### 3.1.3. juicysfplugin (macOS, Windows)
 
 If you want to use FluidSynth with an more conventional GUI (compared to FluidSynth Plugin), [juicysfplugin](https://github.com/Birch-san/juicysfplugin) is your best option. However, there are some limitations and quirks you should be aware of:
@@ -194,7 +192,7 @@ If you want to use FluidSynth with an more conventional GUI (compared to FluidSy
 * It is not possible to change the sample interpolation method from FluidSynth’s default 4th-order resampler. This means there will be cases where high frequency aliasing may be audible, particularly when playing a sample far above or below its natural sample rate.
 * The entire SoundFont is always loaded to RAM, even if you’re only using one preset from an otherwise enormous SoundFont.
 
-If any of the above are an issue for you, you should consider using FluidSynth Plugin (see [section 3.1.1](#311-fluidsynth-plugin-gnulinux-macos-windows) above) instead.<div style="page-break-after: always"></div>
+If any of the above are an issue for you, you should consider using FluidSynth Plugin (see [section 3.1.1](#311-fluidsynth-plugin-gnulinux-macos-windows) above) instead.
 
 #### 3.1.4. LMMS (GNU/Linux, macOS, Windows)
 
@@ -270,7 +268,6 @@ The player runs in a terminal window, but you can easily set it up to automatica
    set synth.chorus.level 0.55
    set synth.chorus.nr 4
    set synth.chorus.speed 0.36
-   interp 7
    ```
    This will tell FluidSynth to function as a Roland GS device (`set synth.device-id 16`), set the reverb and chorus engines to sound much better than default, set sample interpolation to the highest quality (`interp 7`), and point to GeneralUser GS. If you need to adjust audio driver or other settings, more options are listed in [the FluidSynth documention](https://www.fluidsynth.org/api/fluidsettings.html).
 
@@ -278,7 +275,6 @@ The player runs in a terminal window, but you can easily set it up to automatica
    
    * Linux, macOS: `$HOME/.fluidsynth`
    * Windows: `%USERPROFILE%\fluidsynth.cfg`
-   
    
    > :memo: **Note:** Be sure that your text editor doesn’t add a “.txt” extension at the end of the filename when saving. On Windows `%USERPROFILE%` points to your Windows User folder, usually located at `C:\Users\YourUserName\`. On macOS, `$HOME` points to `/Users/YourUserName/`, and on Linux, `$HOME` usually points to `/home/YourUserName/`. Obviously, replace “YourUserName” with your user name.
 
@@ -289,7 +285,7 @@ You can now play MIDI files using the command line (via your system’s terminal
 Once you have everything working and are happy with the results, you can set FluidSynth as the default MIDI player (it will open when you double-click on a MIDI file). To do this, follow the instructions below for your OS:
 
 * **Linux:**
-  1. Copy the `fluidsynth.desktop` file from the `support/FluidSynth/Linux/` folder included with GeneralUser GS to the `~/.local/share/applications/` folder. Your OS should now give you the option to choose “FluidSynth” when opening a MIDI file, and you can set it as the default application if desired.
+  1. Copy the `FluidSynth.desktop` file from the `support/FluidSynth/Linux/` folder included with GeneralUser GS to the `~/.local/share/applications/` folder. Your OS should now give you the option to choose “FluidSynth” when opening a MIDI file, and you can set it as the default application if desired.
 
 * **macOS:**
   1. Using Finder, copy the `FluidSynth` app from the `support/FluidSynth/macOS` folder included with GeneralUser GS into your `Applications` folder.
@@ -330,7 +326,7 @@ First, install Soundfont Midi Player and check to see what version of BASSMIDI i
 If the BASSMIDI version is lower than 2.4.14.33, you will need to update it manually as follows:
 
 5. Close Soundfont Midi Player.
-6. Download the latest BASSMIDI version by following the instructions in [section 3.0.1](#301-bassmidi) above.
+6. Download the latest release of BASSMIDI by scrolling down to the “Add-ons” section of [the BASS audio library homepage](https://www.un4seen.com/bass.html).
 7. Extract/open the downloaded archive and locate `bassmidi.dll` inside the `x64` folder (unless you installed the default, 32-bit version of Soundfont Midi Player, then locate the copy *outside* of the `x64` folder).
 8. Copy that `bassmidi.dll` into the the Soundfont Midi Player folder (`MidiPlayer6`), replacing the existing `bassmidi.dll` in that folder.
 9. Repeat steps 3 and 4 above to verify that BASSMIDI is now at version 2.4.14.33 or later.
@@ -472,7 +468,7 @@ To set [SCUMMVM](https://www.scummvm.org/) to use GeneralUser GS for General MID
      - Active: **Yes**
      - Room: **50**
      - Damp: **30**
-     - Width: **80**
+     - Width: **8**
      - Level: **70**
    * Chorus
      - Active: **Yes**
@@ -481,8 +477,6 @@ To set [SCUMMVM](https://www.scummvm.org/) to use GeneralUser GS for General MID
      - Speed: **36**
      - Depth: **36**
      - Type: **Sine**
-   * Misc
-     - Interpolation: If you have a fast CPU, set to “Seventh-order” for best sound quality.
 
 #### 3.3.3. Virtual MIDI Devices
 
@@ -490,7 +484,7 @@ If your game or emulator doesn’t have a good SoundFont player built-in, you ca
 
 ### 3.4. All-Purpose MIDI Playback (virtual MIDI device + separate MIDI player)
 
-A virtual MIDI device is a standalone synthesizer application that plays MIDI data received from a separate player entity. The application playing MIDI could be a sequencer, MIDI file player, video game, or just about anything. You will need to first start the virtual MIDI device and then point your MIDI player/game/etc. to output its MIDI to that device. Please follow each program’s documentation for instructions on how to do that.
+A virtual MIDI device is a standalone synthesizer application that plays MIDI data received from a separate player entity. The application playing MIDI could be a sequencer, MIDI file player, video game, or just about anything. You will need to first start the virtual MIDI device and then point your MIDI player/game/etc. to output its MIDI to that device. Please follow each program’s documentation for instructions on how to do that.<div style="page-break-after: always"></div>
 
 ***Recommended MIDI File Players***
 
@@ -570,20 +564,17 @@ If you are using another desktop environment::
 
 #### 3.4.2. CoolSoft VirtualMidiSynth (Windows)
 
-[CoolSoft VirtualMIDISynth](https://coolsoft.altervista.org/en/virtualmidisynth) is a virtual MIDI device based on BASSMIDI. As of the current version (2.13.8), it will also need an updated copy of `bassmidi.dll` to sound fully correct with GeneralUser GS, but this is easy to do. Please follow the application’s instructions for setup, then make the following tweaks for best results with GeneralUser GS:
+[CoolSoft VirtualMIDISynth](https://coolsoft.altervista.org/en/virtualmidisynth) is a virtual MIDI device based on BASSMIDI. Version 2.13.9 or later is required to ensure correct playback with GeneralUser GS. Please follow the application’s instructions for setup, then make the following tweaks in the VirtualMIDISynth options for best results with GeneralUser GS:
 
-1. Download the latest BASSMIDI version by following the instructions in [section 3.0.1](#301-bassmidi) above.
-2. Copy the 64-bit `bassmidi.dll` into `C:\Program Files\VirtualMIDISynth`, replacing the existing copy.
-3. In the VirtualMIDISynth options, adjust the following settings:
-   - Use sinc interpolated sample mixing...: **yes**
-   - Reverb max level: **60**
-   - Chorus max level: **43**
+* Use sinc interpolated sample mixing...: **yes**
+* Reverb max level: **60**
+* Chorus max level: **43**
 
 #### 3.4.3. OmniMIDI (Windows)
 
-[OmniMIDI](https://github.com/KeppySoftware/OmniMIDI) is a virtual MIDI device based on BASSMIDI, very similar in function to VirtualMIDISynth. It will also need an updated copy of `bassmidi.dll` to sound fully correct with GeneralUser GS, but this is easy to do. Please follow the application’s instructions for setup, then make the following tweaks for best results with GeneralUser GS:
+[OmniMIDI](https://github.com/KeppySoftware/OmniMIDI) is a virtual MIDI device based on BASSMIDI, very similar in function to VirtualMIDISynth. As of the current version (14.8.5), it will also need an updated copy of `bassmidi.dll` to sound fully correct with GeneralUser GS, but this is easy to do. Please follow the application’s instructions for setup, then make the following tweaks for best results with GeneralUser GS:
 
-1. Download the latest BASSMIDI version by following the instructions in [section 3.0.1](#301-bassmidi) above.
+1. Download the latest release of BASSMIDI by scrolling down to the “Add-ons” section of [the BASS audio library homepage](https://www.un4seen.com/bass.html). The downloaded zip file will contain two copies of `bassmidi.dll`. The copy inside the `x64` folder is the 64-bit version, and the copy outside of that folder is the 32-bit version.
 2. Copy the 64-bit `bassmidi.dll` into `C:\Windows\System32\OmniMidi`, replacing the existing copy.
 3. Copy the 32-bit `bassmidi.dll` into `C:\Windows\SysWow64\OmniMidi`, replacing the existing copy.
 
@@ -789,13 +780,26 @@ sf3convert -z -q 0.8 -a -1 GeneralUser-GS.sf2 GeneralUser-GS.sf3
 ```
 This reduces the SoundFont to less than a third of its former size while sounding nearly indistinguishable from the original SF2.
 
-## 7. Website and Contact
+## 7. Products Using GeneralUser GS
+
+GeneralUser GS has been included with countless music applications over the years. Below is a list of products I am aware of, though I'm sure there are plenty that I don't yet know about:
+
+* [Ardour](https://ardour.org/) (DAW for Linux, macOS, Windows)
+* [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865) (iOS)
+* [MIDI Clef Karaoke Player](https://play.google.com/store/apps/details?id=it.giccisw.midi&hl=en) (Android)
+* [Acoustica Mixcraft](https://acoustica.com/products/mixcraft) (DAW for Windows)
+* [Notation Software](https://www.notation.com/index.php) products, including Notation Composer, Notation Musician, and Notation Player. (Linux, macOS, Windows)
+* [SpessaSynth](https://spessasus.github.io/SpessaSynth/) (web app)
+
+<div style="page-break-after: always"></div>
+
+## 8. Website and Contact
 
 * You can find updates to GeneralUser GS and more of my virtual instruments at <https://www.schristiancollins.com>, where you can also contact me if you have any questions. 
 
 * If you’d like to be notified of new releases and updates to my virtual instruments, [follow me on X](https://twitter.com/SChrisCollins).
 
-* For those upgrading from a previous version of GeneralUser GS, [I have created a video](https://youtu.be/AtXvMz22y-M) showing some of the changes in GeneralUser GS version 2.0.
+* For those upgrading from a pre-2.0 version of GeneralUser GS, [I have created a video](https://youtu.be/AtXvMz22y-M) showing some of the changes in GeneralUser GS version 2.0.
 
 * If you have found a bug or issue, you can report it on the [GeneralUser GS GitHub page](https://github.com/mrbumpy409/GeneralUser-GS).
 

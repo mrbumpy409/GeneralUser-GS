@@ -1249,6 +1249,26 @@ pre[class*="language-"] {
 </head>
 <body>
   <article class="markdown-body"><h1 class="atx" id="generaluser-gs-revision-history">GeneralUser GS Revision History</h1>
+<h2 class="atx" id="202-2025-04-21">2.0.2 (2025-04-21)</h2>
+<ul>
+<li>Added exclusive class (self-muting) behavior to the following percussion kit sounds:<ul>
+<li><strong>Hi / Low Whistle</strong></li>
+<li><strong>Guiro Short / Long</strong></li>
+<li><strong>Cuica Mute / Open</strong></li>
+</ul>
+</li>
+<li>Improved programming on <strong>000:060 French Horns</strong>. The lowest part of the instrument range is now a bit brighter, and I have better balanced the use of the filter across the entire key and velocity range. Partially addresses <a target="_blank" rel="noreferrer noopener" href="https://github.com/mrbumpy409/GeneralUser-GS/issues/9">issue #9</a>.</li>
+<li>Documentation updates:<ul>
+<li>Corrected reverb settings in SCUMMVM. Fixes <a target="_blank" rel="noreferrer noopener" href="https://github.com/mrbumpy409/GeneralUser-GS/issues/13">issue #13</a>.</li>
+<li>Removed recommendations to use 7th-order interpolation in FluidSynth, as it can actually add distortions into the sound in some cases.</li>
+<li>Removed outdated information.</li>
+</ul>
+</li>
+<li>Support files updates:<ul>
+<li>Tweaked the Linux .desktop file for FluidSynth to match the case between filename and application name and to avoid launch feedback.</li>
+</ul>
+</li>
+</ul>
 <h2 class="atx" id="201-2024-10-15">2.0.1 (2024-10-15)</h2>
 <ul>
 <li>Removed the version number and space from the SoundFont filename so users can update the SoundFont without changing filename links that point to it.</li>
