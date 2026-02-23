@@ -1,5 +1,10 @@
 # GeneralUser GS Revision History
 
+## 2.0.3 (2026-02-22)
+
+* Improved looping in sample “StrLoop - F#1”.
+* Restored full sample quality after discovering that the SoundFont editor Polyphone has been [slowly degrading the samples](https://github.com/davy7125/polyphone/pull/278) with each save. Fixes [#16](https://github.com/mrbumpy409/GeneralUser-GS/issues/16).
+
 ## 2.0.2 (2025-04-21)
 
 * Added exclusive class (self-muting) behavior to the following percussion kit sounds:

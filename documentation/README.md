@@ -1,7 +1,7 @@
 ﻿# GeneralUser GS Documentation
 
-_GeneralUser GS: **version 2.0.2** (4/21/2025)_  
-_Documentation: **revision 4** (4/21/2025)_  
+_GeneralUser GS: **version 2.0.3** (2/22/2026)_  
+_Documentation: **revision 5** (2/22/2026)_  
 ***by S. Christian Collins***
 
 Updates to this documentation will be published on [my GeneralUser GS web page](https://www.schristiancollins.com/generaluser) and viewable online at [GitHub](https://github.com/mrbumpy409/GeneralUser-GS/blob/main/documentation/README.md).
@@ -20,19 +20,19 @@ I decided on the name “GeneralUser” because the bank was designed to sound w
 
 ## 2. Compatibility
 
-GeneralUser GS is fully compatible with [FluidSynth](https://www.fluidsynth.org/) and [BASSMIDI](https://www.un4seen.com/bass.html) (version 2.4.14.28 or later) and most software based on these two engines. It is also fully compatible with [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865) (iOS) & [SpessaSynth](https://spessasus.github.io/SpessaSynth/) (web app).
+GeneralUser GS is fully compatible with the current versions of [BASSMIDI](https://www.un4seen.com/bass.html), [FluidSynth](https://www.fluidsynth.org/), [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865), [Sobanth VSTi](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth), and [SpessaSynth](https://spessasus.github.io/SpessaSynth/). Full compatibility is also likely with any application based on one of the aforementioned players, depending on how the application has configured the underlying SoundFont engine. BASSMIDI and FluidSynth in particular are used in a lot of applications (DOSBox Staging, ScummVM, and VLC, just to name a few).
 
-Most other SoundFont synths will not properly render many of the presets and should be avoided. The following table shows the compatibility status of several popular SoundFont engines:
+Most other SoundFont synths will not properly render many of the presets and should be avoided. The following table shows the compatibility status of several popular SoundFont players:
 
 | SoundFont Synth / Application                                                           | Compatibility | Notes                                                                                                         |
 | --------------------------------------------------------------------------------------- |:-------------:| ------------------------------------------------------------------------------------------------------------- |
 | Apple AUMIDISynth / DLSMusicDevice, et al. (most MIDI players on macOS/iOS)             | Awful         | The Apple SoundFont synths are an abomination, violating the spec in every way imaginable.                    |
-| [BASSMIDI](https://www.un4seen.com/bass.html) (& OmniMIDI, et al.)                      | **Excellent** | BASSMIDI v2.4.14.28 or later *required*. Configuration may be necessary (see [section 3.0.1](#301-bassmidi)). |
+| [BASSMIDI](https://www.un4seen.com/bass.html) (& OmniMIDI, et al.)                      | **Excellent** | BASSMIDI v2.4.14.28 or later required. Configuration may be necessary (see [section 3.0.1](#301-bassmidi)).   |
 | [bismark bs-16i](https://www.bismark.jp/bs-16i) (Android, iOS)                          | Poor          | bs-16i cannot handle GeneralUser’s modulators, so many instruments sound incorrect.                           |
 | [FluidSynth](https://www.fluidsynth.org/) (& Qsynth, et al.)                            | **Excellent** | FluidSynth v2.3 or later recommended. See [section 3.0.2](#302-fluidsynth) for ideal settings.                |
 | [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865)                       | **Excellent** | Version 1.6 or later recommended. See [section 3.2.3](#323-kq-sampei-ios) for ideal settings.                 |
 | [MuseScore Studio 4](https://musescore.org/en)                                          | Poor          | The current version of MuseScore disables the lowpass filter, breaking many presets.                          |
-| [Sobanth VSTi](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth) | Good          | Uses the wrong mod envelope attack curve, so some presets will sound incorrect.                               |
+| [Sobanth VSTi](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth) | **Excellent** | Sobanth v2025.12.31.23.03.00 or later required. See [section 3.1.3](#313-sobanth-vsti-windows).               |
 | Sound Blaster Audigy / X-Fi family of sound cards                                       | Okay          | Many instruments will sound too bright due to Creative Labs’ filter implementation.                           |
 | Sound Blaster Live! family of sound cards                                               | Poor          | The Live! only supports SoundFont v2.0, but v2.01 or later is required for GeneralUser GS.                    |
 | [SpessaSynth](https://spessasus.github.io/SpessaSynth/)                                 | **Excellent** | Version v3.20.43 or later recommended.                                                                        |
@@ -49,7 +49,7 @@ As for Linux, all of the Windows applications that I list in the following secti
 
 ## 3. Configuration and Usage
 
-The following sections will detail how to best configure your SoundFont synth for use with GeneralUser GS. The sections are broken down into the most common use cases for GeneralUser GS: [using DAW plugins](#31-daw-plugins-composing-or-live-musical-performance) (composing or live musical performance), [playing MIDI files](#32-playing-midi-files), and [retro PC gaming](#33-retro-pc-gaming). There are also options that can cover [multiple use cases](#34-all-purpose-midi-playback-virtual-midi-device--separate-midi-player). Most of the recommended applications will be using either BASSMIDI or FluidSynth and will be listed in order of my personal recommendation.
+The following sections will detail how to best configure your SoundFont synth for use with GeneralUser GS. The sections are broken down into the most common use cases for GeneralUser GS: [using DAW plugins](#31-daw-plugins-composing-or-live-musical-performance) (composing or live musical performance), [playing MIDI files](#32-playing-midi-files), and [retro PC gaming](#33-retro-pc-gaming). There are also options that can cover [multiple use cases](#34-all-purpose-midi-playback-virtual-midi-device--separate-midi-player). Most of the recommended applications are based on either BASSMIDI or FluidSynth and will be listed in order of my personal recommendation.
 
 I won’t detail every application using these two SoundFont engines, but instead only what I find to be the easiest to use and/or provide the best playback quality. There are also likely to be good applications that I have missed, so please [let me know](https://www.schristiancollins.com/contact) if you think a different application should be on this list.
 
@@ -108,13 +108,13 @@ Instructions for setting these values can be found in the individual app section
 
 If you wish to use GeneralUser GS for composing music in a digital audio workstation (DAW), there are some very nice virtual instrument plugins available that feature excellent SoundFont compatibility and high quality audio rendering. I have listed my favorite plugins below in order of preference. Where I have not provided installation instructions, please follow each plugin’s documentation for installation and loading onto a track in your DAW.
 
-#### 3.1.1. FluidSynth Plugin (GNU/Linux, macOS, Windows)
+#### 3.1.1. FluidSynthPlugin (GNU/Linux, macOS, Windows)
 
-Some may be turned off by [FluidSynth Plugin](https://github.com/prof-spock/FluidSynthPlugin)’s lack of a traditional GUI, but there are some really nice features here. This plugin provides the best SoundFont renderer available (FluidSynth), and allows full customization of FluidSynth’s options including enabling/disabling/customizing the reverb and chorus, changing the sample interpolation method, loading only the active preset’s samples to RAM, and more. These settings are written as text into the interface, so you will want to consult the plugin’s documentation to see all of the options.
+Some may be turned off by [FluidSynthPlugin](https://github.com/prof-spock/FluidSynthPlugin)’s lack of a traditional GUI, but there are some really nice features here. This plugin provides the best SoundFont rendering available (via FluidSynth), and allows full customization of FluidSynth’s options including enabling/disabling/customizing the reverb and chorus, changing the sample interpolation method, loading only the active preset’s samples to RAM, and more. These settings are written as text into the interface, so you will want to consult the plugin’s documentation to see all of the options.
 
 ***Installation & Setup***
 
-1. [Download the latest FluidSynth Plugin release](https://github.com/prof-spock/FluidSynthPlugin/releases) for your platform.
+1. [Download the latest FluidSynthPlugin release](https://github.com/prof-spock/FluidSynthPlugin/releases) for your platform.
 2. Extract the downloaded archive, then locate the `FluidSynthPlugin.vst3` folder, which will be inside `programs/VST3`. For macOS, you may wish to use the Audio Units (AU) plugin instead of the VST3 to provide a better experience on Apple Silicon Macs. The AU version is the `FluidSynthPlugin.component` folder, which will be inside `programs/AU`.
 3. Copy the `FluidSynthPlugin.vst3` folder to your platform’s default VST3 location:
    
@@ -124,9 +124,9 @@ Some may be turned off by [FluidSynth Plugin](https://github.com/prof-spock/Flui
    
    For the AU plugin on macOS, copy the `FluidSynthPlugin.component` folder into `/Library/Audio/Plug-ins/Components`.
 
-4. *Linux only:* Install your system’s libfluidsynth package (`libfluidsynth3` in ubuntu, `fluidsynth-libs` in Fedora). Also note that FluidSynth Plugin might not work on older Linux OS versions (requires Ubuntu 23.10 or later; I’m not sure about Fedora or others).
+4. *Linux only:* Install your system’s libfluidsynth package (`libfluidsynth3` in ubuntu, `fluidsynth-libs` in Fedora). Also note that FluidSynthPlugin might not work on older Linux OS versions (requires Ubuntu 23.10 or later; I’m not sure about Fedora or others).
 5. Open your DAW and let it scan for new/updated VST plugins. You should now be able to add “FluidSynthPlugin (DrTT)” to a track as a virtual instrument.
-6. *macOS only:* There is a good chance macOS will tell you it can’t open FluidSynth Plugin since it is from an unverified publisher. Unfortunately, the usual step of allowing the program to run via “System Preferences” → “Security & Privacy” won’t work for VSTs. Instead, you will need to open the Terminal app (found in the Utilities folder) and run the following command (assuming you placed the VST/AU folder in the default location in step 3):
+6. *macOS only:* There is a good chance macOS will tell you it can’t open FluidSynthPlugin since it is from an unverified publisher. Unfortunately, the usual step of allowing the program to run via “System Preferences” → “Security & Privacy” won’t work for VSTs. Instead, you will need to open the Terminal app (found in the Utilities folder) and run the following command (assuming you placed the VST/AU folder in the default location in step 3):
    
    For the VST3 plugin:
    ```
@@ -140,7 +140,7 @@ Some may be turned off by [FluidSynth Plugin](https://github.com/prof-spock/Flui
    
    Then, re-scan the VST plugins in your DAW.
 
-7. After adding “FluidSynthPlugin (DrTT)” to a track in your DAW, right-click in the FluidSynth Plugin GUI and choose “Select SoundFont File...”. A file selection window should appear.
+7. After adding “FluidSynthPlugin (DrTT)” to a track in your DAW, right-click in the FluidSynthPlugin GUI and choose “Select SoundFont File...”. A file selection window should appear.
 8. Find and choose `GeneralUser-GS.sf2` and click “Open”.
 9. Click “Confirm” to load the SoundFont.
 10. Paste the following recommended settings into the plugin’s text box:
@@ -159,23 +159,25 @@ Some may be turned off by [FluidSynth Plugin](https://github.com/prof-spock/Flui
     synth.chorus.nr = 4
     synth.chorus.speed = 0.36
     ```
-11. Press “Confirm” again.
-12. Right-click in the FluidSynthPlugin GUI and choose “Select Program...” to chose your desired preset. Click “OK” and then “Confirm” to activate the preset.
+11. If you have loaded a large SoundFont bank containing many presets, you can add the following line to the text box to have FluidSynthPlugin only load the selected preset to memory:
+    ```
+    synth.dynamic-sample-loading = 1
+    ```
+12. Press “Confirm” again.
+13. Right-click in the FluidSynthPlugin GUI and choose “Select Program...” to chose your desired preset. Click “OK” and then “Confirm” to activate the preset.
 
 Alternatively to the last step, you can opt not to choose a preset and instead rely on preset change MIDI messages to do so. Also, if you prefer to use your DAW’s effects plugins instead of FluidSynth’s, you can set both `synth.reverb.active` and `synth.chorus.active` to **0**, leaving out the rest of the reverb and chorus settings lines. Whatever your preferred settings end up being, you can save the plugin configuration as a preset to avoid having to write the values in every time.
 
 #### 3.1.2. BassMidi VSTi (Windows)
 
-As should be obvious from the plugin name, [BassMidi VSTi](https://falcosoft.hu/softwares.html#bassmidi_vsti) is based on the BASSMIDI library. GeneralUser GS requires BassMidi VSTi version 1.6 or later, and “Do not emulate SB HW limits” must be enabled in “Soundfont/Bassmidi Setup”. Future plugin versions will likely make the Sound Blaster hardware emulation opt-in rather than opt-out, so be sure to read the wording of the option. Basically, you *don’t* want Sound Blaster hardware limit emulation when using GeneralUser GS.
-
-BassMidi VSTi is the only plugin on this list that is multi-timbral, meaning you can have different instruments loaded on each of its 16 MIDI channels.
+As should be obvious from the plugin name, [BassMidi VSTi](https://falcosoft.hu/softwares.html#bassmidi_vsti) is based on the BASSMIDI library. GeneralUser GS requires BassMidi VSTi version 1.6 or later. Unlike FluidSynthPlugin, BassMidi VSTi is multi-timbral, meaning you can have different instruments loaded on each of its 16 MIDI channels.
 
 To use GeneralUser GS with BassMidi VSTi:
 
 1. Click the “Soundfont/Bassmidi Setup” button in the BassMidi VSTi GUI.
 2. Under “Default Soundfont”, click the “File” button. A file selection window should appear.
 3. Find and choose `GeneralUser-GS.sf2` and click “Open”.
-4. Enable the “Do not emulate SB HW limits” option if using plugin version 1.6. This option will likely not be available or needed in future plugin versions.
+4. If using plugin version 1.6, enable the “Do not emulate SB HW limits” option. This option does not exist (nor is it needed) in later plugin versions.
 5. Set Reverb level to **60**.
 6. Set Chorus type to “Chorus 3”.
 7. Set Chorus level to **44**.
@@ -183,18 +185,31 @@ To use GeneralUser GS with BassMidi VSTi:
 
 <div style="page-break-after: always"></div>
 
-#### 3.1.3. juicysfplugin (macOS, Windows)
+#### 3.1.3. Sobanth VSTi (Windows)
 
-If you want to use FluidSynth with an more conventional GUI (compared to FluidSynth Plugin), [juicysfplugin](https://github.com/Birch-san/juicysfplugin) is your best option. However, there are some limitations and quirks you should be aware of:
+As of version 2025.12.31.23.03.00, [Sobanth](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth) now stands with FluidSynth atop the list of best SoundFont synths. It has full support of the SoundFont 2.04 specification and no issues that I can find. Like BassMidi VSTi, Sobanth VSTi is multi-timbral, so you can have multiple different instruments playing via a single plugin instance.
+
+To use GeneralUser GS with Sobanth VSTi:
+
+1. Click the “Add bank” button in the Sobanth VSTi GUI.
+2. Find and choose `GeneralUser-GS.sf2` and click “Open”.
+3. I recommend enabling “Lower volume by -6 dB” in the options at the bottom right of the plugin.
+4. Consider increasing the number of voices to 256, especially if you intend on using more than one MIDI channel simultaneously.
+
+#### 3.1.4. juicysfplugin (macOS, Windows)
+
+If you want to use FluidSynth with an more conventional GUI (compared to FluidSynthPlugin), [juicysfplugin](https://github.com/Birch-san/juicysfplugin) is your best option. However, there are some limitations and quirks you should be aware of:
 
 * MIDI event timing will be limited to your current audio buffer size, with minimum timing resolution = 64 samples. This means if you have your ASIO buffer set to 512 samples, MIDI events can only be registered to juicysfplugin every 512 samples, leading to inaccurate timing. The workaround for rendered audio is to set your rendering buffer size to 64 samples. REAPER has a setting for this, but I’m not sure about other DAWs.
 * Reverb and chorus engines are disabled.
 * It is not possible to change the sample interpolation method from FluidSynth’s default 4th-order resampler. This means there will be cases where high frequency aliasing may be audible, particularly when playing a sample far above or below its natural sample rate.
 * The entire SoundFont is always loaded to RAM, even if you’re only using one preset from an otherwise enormous SoundFont.
 
-If any of the above are an issue for you, you should consider using FluidSynth Plugin (see [section 3.1.1](#311-fluidsynth-plugin-gnulinux-macos-windows) above) instead.
+If any of the above are an issue for you, you should consider using FluidSynthPlugin (see [section 3.1.1](#311-fluidsynth-plugin-gnulinux-macos-windows) above) instead.
 
-#### 3.1.4. LMMS (GNU/Linux, macOS, Windows)
+<div style="page-break-after: always"></div>
+
+#### 3.1.5. LMMS (GNU/Linux, macOS, Windows)
 
 GeneralUser GS works great in LMMS’ integrated “Sf2 Player”, which is based on FluidSynth. If you wish to use Sf2 Player’s built-in reverb and chorus, I recommend the following values:
 
@@ -212,14 +227,7 @@ GeneralUser GS works great in LMMS’ integrated “Sf2 Player”, which is base
 
 Please note that it doesn’t appear possible to control the reverb and chorus levels via MIDI CC91 or CC93, so these effects would only be present on SoundFont presets that call for them. It will therefore usually be preferable to achieve reverb or other effects using LMMS’ effects chains.
 
-#### 3.1.5. Others
-
-One other DAW plugin of note is [Sobanth](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth) (Windows). This plugin is an almost-perfect implementation of the SoundFont standard, but the current version has a few issues, including:
-
-* The modulation envelope attack phase is linear instead of convex, impacting many synth sounds, solo brass, clarinet, and others.
-* Stereo samples are panned incorrectly. This doesn’t impact GeneralUser GS, which uses mono samples only.
-
-If an update to Sobanth ever fixes the issues mentioned above, I will provide full configuration instructions within this documentation, as this plugin is otherwise quite good.<div style="page-break-after: always"></div>
+<div style="page-break-after: always"></div>
 
 ### 3.2. Playing MIDI Files
 
@@ -228,7 +236,7 @@ Playing MIDI files on PC is usually accomplished in one of two ways:
 1. The MIDI file player and SoundFont synthesizer are both contained within the same application.
 2. The MIDI file player and SoundFont synthesizer are separate applications connected via a virtual MIDI interface.
 
-Standalone applications *(option #1)* are generally the easiest to set up and use, but as of this writing, only a few provide ideal playback quality. This will change in the future once FluidSynth-based MIDI players such as VLC adopt FluidSynth 2.4 with its improved reverb and chorus settings (the current FluidSynth version as of this writing is 2.3.6). Using a separate synthesizer and MIDI player *(option #2)* is covered in [section 3.4 below](#34-all-purpose-midi-playback-virtual-midi-device--separate-midi-player).
+Standalone applications *(option #1)* are generally the easiest to set up and use, but as of this writing, only a few provide ideal playback quality. This will change in the future once FluidSynth-based MIDI players such as VLC adopt FluidSynth 2.4 or later with its improved reverb and chorus settings. Using a separate synthesizer and MIDI player *(option #2)* is covered in [section 3.4 below](#34-all-purpose-midi-playback-virtual-midi-device--separate-midi-player).
 
 The following sections start with my top recommended MIDI playback applications for each operating system, followed by other noteworthy options. I have included a few MIDI files with GeneralUser GS in the `demo MIDIs` folder for testing each application. You will also find .ogg audio of each MIDI file as a reference for how playback should sound (played using FluidSynth and GeneralUser GS 2.0.0).
 
@@ -310,39 +318,23 @@ Now, when you double-click a MIDI file, FluidSynth should begin playing it in a 
 
 #### 3.2.2. Falcosoft Soundfont Midi Player (Windows)
 
-Based on BASSMIDI, Falcosoft’s [Soundfont Midi Player](https://falcosoft.hu/softwares.html#midiplayer) is my #1 recommendation on Windows if you are looking for a MIDI player with a full graphical user experience, assuming you don’t mind some manual setup. The version available as of this writing (6.4) will require an update to the BASSMIDI library for correct playback with GeneralUser GS.
+Based on BASSMIDI, Falcosoft’s [Soundfont Midi Player](https://falcosoft.hu/softwares.html#midiplayer) is my #1 recommendation on Windows if you are looking for a MIDI player with a full graphical user experience. Version 6.5 or later is recommended to avoid having to manually update the BASSMIDI library. If you wish to use an older version, [this tutorial video](https://youtu.be/0Pu9Qe3FwsA) will walk you through the steps necessary for GeneralUser GS compatibility.
 
 ***Installation & Setup***
-
-> :memo: **Note:** I have created a [tutorial video for the setup process](https://youtu.be/0Pu9Qe3FwsA).
-
-First, install Soundfont Midi Player and check to see what version of BASSMIDI it is using:
 
 1. Download [Soundfont Midi Player](https://falcosoft.hu/softwares.html#midiplayer), ideally the 64-bit version (the rest of this tutorial will assume you have downloaded the 64-bit version).
 2. There is no installer for this application, so you will need to copy/extract the `MidiPlayer6` folder from inside the downloaded zip file to a location of your choosing (such as your desktop). You will run the MIDI player directly from this folder.
 3. Open the extracted `MidiPlayer6` folder and double-click `MidiPlayer.exe` to launch the player.
-4. Click the menu button (icon with three lines at the top-left of the window) and choose “About...”. In the window that pops up you can find the BASSMIDI version number.
-
-If the BASSMIDI version is lower than 2.4.14.33, you will need to update it manually as follows:
-
-5. Close Soundfont Midi Player.
-6. Download the latest release of BASSMIDI by scrolling down to the “Add-ons” section of [the BASS audio library homepage](https://www.un4seen.com/bass.html).
-7. Extract/open the downloaded archive and locate `bassmidi.dll` inside the `x64` folder (unless you installed the default, 32-bit version of Soundfont Midi Player, then locate the copy *outside* of the `x64` folder).
-8. Copy that `bassmidi.dll` into the the Soundfont Midi Player folder (`MidiPlayer6`), replacing the existing `bassmidi.dll` in that folder.
-9. Repeat steps 3 and 4 above to verify that BASSMIDI is now at version 2.4.14.33 or later.
-
-Then, start Soundfont Midi Player and configure it as follows:
-
-10. Click the gear icon near the top left of the application. This will take you to a “Midi Player Device Settings” window.
-11. Under “Midi Out” at the top, enable “Use Bass (Soundfonts/VSTi)”. This will expand the window to show “BassMidi Settings”.
-12. Under BassMidi Settings, click the “File” button under “Default SoundFont”, find and select `GeneralUser-GS.sf2`, then click “Open”.
-13. For improved sound quality, enable “Use Sinc Interpolation”. If your CPU usage during MIDI playback ends up being too high, you can revert this change.
-14. On the left of the settings window, under “SysEx Effects (Midi Out/BassMidi/VSTi)”, set the following:
+4. Click the gear icon near the top left of the application. This will take you to a “Midi Player Device Settings” window.
+5. Under “Midi Out” at the top, enable “Use Bass (Soundfonts/VSTi)”. This will expand the window to show “BassMidi Settings”.
+6. Under BassMidi Settings, click the “File” button under “Default SoundFont”, find and select `GeneralUser-GS.sf2`, then click “Open”.
+7. For improved sound quality, enable “Use Sinc Interpolation”. If your CPU usage during MIDI playback ends up being too high, you can revert this change.
+8. On the left of the settings window, under “SysEx Effects (Midi Out/BassMidi/VSTi)”, set the following:
     - Reverb level: **59**
     - Chorus level: **43**
-15. Click OK to close the window.
+9. Click OK to close the window.
 
-You can now load and play MIDI files.<div style="page-break-after: always"></div>
+You can now load and play MIDI files.
 
 #### 3.2.3. KQ Sampei (iOS)
 
@@ -362,15 +354,15 @@ You can now load and play MIDI files.<div style="page-break-after: always"></div
 9. Close the “Preferences” popup, and click on “Param” to view the parameter options.
 10. Set the reverb level to **37.01%** and then enable “Lock Parameters” just above that.
 
-#### 3.2.4. SpessaSynth (Web App)
+#### 3.2.4. Midi Clef Karaoke Player (Android)
 
-[SpessaSynth](https://spessasus.github.io/SpessaSynth/) is a web MIDI player that works great with GeneralUser GS v2.0. In fact, it currently uses GeneralUser GS by default, though the version included with the web player uses compressed audio samples (SF3 format). If you wish to have the best audio quality, you can manually upload the uncompressed SF2 file into the player.
-
-#### 3.2.5. Midi Clef Karaoke Player (Android)
-
-[Midi Clef Karaoke Player](https://play.google.com/store/apps/details?id=it.giccisw.midi) (current version is 7.4.8) is the best MIDI player I was able to find for Android. It uses the BASSMIDI engine, though I couldn’t find which version. I can at least tell that the included BASSMIDI version is older than 2.4.14.33, so many instruments will sound a bit too bright and some will not quite sound correct (see [section 3.0.1](#301-bassmidi) above for an explanation).
+[Midi Clef Karaoke Player](https://play.google.com/store/apps/details?id=it.giccisw.midi) (current version is 9.0.3) is an excellent MIDI player for Android that uses BASSMIDI for SoundFont playback.
 
 You can install Midi Clef Karaoke Player from the Google Play Store, and it shouldn’t be too hard to figure out how to load `GeneralUser-GS.sf2` as the default SoundFont and start playing MIDI files. Consult the app’s built-in help if you get stuck.
+
+#### 3.2.5. SpessaSynth (Web App)
+
+[SpessaSynth](https://spessasus.github.io/SpessaSynth/) is a web MIDI player that works great with GeneralUser GS v2.0. In fact, it currently uses GeneralUser GS by default, though the version included with the web player uses compressed audio samples (SF3 format). If you wish to have the best audio quality, you can manually upload the uncompressed SF2 file into the player.
 
 #### 3.2.6. dmidiplayer (GNU/Linux, macOS, Windows)
 
@@ -402,10 +394,12 @@ You should now be able to load and play MIDI files using dmidiplayer.
 
 #### 3.2.7. Others
 
-The following applications use FluidSynth for MIDI playback and therefore are supported by GeneralUser GS. However, they do not allow customizing the reverb and chorus effects and will not sound nearly as good as the above recommended options. This will change in the future once these programs adopt the not-yet-released 2.4 version of FluidSynth:
+The following applications use FluidSynth for MIDI playback and therefore are supported by GeneralUser GS. However, they do not allow customizing the reverb and chorus effects and will not sound nearly as good as the above recommended options. This will change in the future once these programs adopt FluidSynth version 2.4 or later:
 
 * [Audacious](https://audacious-media-player.org/) (GNU/Linux, macOS, Windows)
 * [VLC Media Player](https://www.videolan.org/vlc/) (GNU/Linux, macOS, Windows)
+
+<div style="page-break-after: always"></div>
 
 ### 3.3. Retro PC Gaming
 
@@ -455,14 +449,14 @@ I haven’t tested DOSBox-X, but GeneralUser GS should work well with it after c
    ```
 If you find the game music too loud, try setting `fluid.gain` to `0.5` or lower (the default is `0.6`). [Let me know](https://www.schristiancollins.com/contact) what value works well in your experience, and I will include it in future versions of this documentation.
 
-#### 3.3.2 SCUMMVM
+#### 3.3.2 ScummVM
 
-To set [SCUMMVM](https://www.scummvm.org/) to use GeneralUser GS for General MIDI playback:
+To set [ScummVM](https://www.scummvm.org/) to use GeneralUser GS for General MIDI playback:
 
 1. Go into “Global Options...”.
 2. Select the “MIDI” tab.
 3. Set “GM device:” to “FluidSynth”.
-4. Click the “SoundFont:” button and browse to select `GeneralUser-GS.sf2` and click “Choose”.
+4. Click the “SoundFont:” button and browse to select `GeneralUser-GS.sf2` and click “Choose”.<div style="page-break-after: always"></div>
 5. Click “FluidSynth Settings” and set the following settings:
    * Reverb
      - Active: **Yes**
@@ -482,9 +476,11 @@ To set [SCUMMVM](https://www.scummvm.org/) to use GeneralUser GS for General MID
 
 If your game or emulator doesn’t have a good SoundFont player built-in, you can often set it up to send its MIDI music playback to a virtual MIDI device instead. All of my recommended virtual MIDI devices are covered in the following section.
 
+<div style="page-break-after: always"></div>
+
 ### 3.4. All-Purpose MIDI Playback (virtual MIDI device + separate MIDI player)
 
-A virtual MIDI device is a standalone synthesizer application that plays MIDI data received from a separate player entity. The application playing MIDI could be a sequencer, MIDI file player, video game, or just about anything. You will need to first start the virtual MIDI device and then point your MIDI player/game/etc. to output its MIDI to that device. Please follow each program’s documentation for instructions on how to do that.<div style="page-break-after: always"></div>
+A virtual MIDI device is a standalone synthesizer application that plays MIDI data received from a separate player entity. The application playing MIDI could be a sequencer, MIDI file player, video game, or just about anything. You will need to first start the virtual MIDI device and then point your MIDI player/game/etc. to output its MIDI to that device. Please follow each program’s documentation for instructions on how to do that.
 
 ***Recommended MIDI File Players***
 
@@ -501,6 +497,8 @@ Now, on to the list of recommended virtual MIDI devices.
 #### 3.4.1. Qsynth (GNU/Linux)
 
 [Qsynth](https://qsynth.sourceforge.io/) is a graphical front-end for FluidSynth. While you can use FluidSynth (see [section 3.2.1](#321-fluidsynth-gnulinux-macos-windows)) directly as a virtual MIDI device, Qsynth makes it a lot easier to configure and tweak FluidSynth’s many settings.
+
+<div style="page-break-after: always"></div>
 
 ***Installation & Setup***
 
@@ -520,7 +518,7 @@ Now, on to the list of recommended virtual MIDI devices.
    * Reverb Room: **50**
    * Reverb Damp: **30**
    * Reverb Width: **80**
-   * Reverb Level: **70**
+   * Reverb Level: **70**<div style="page-break-after: always"></div>
    * Chorus N: **4**
    * Chorus Level: **55**
    * Chorus Speed: **36**
@@ -541,12 +539,14 @@ If you are using the KDE Plasma desktop:
 4. Click “Save” and exit the KDE Menu Editor.
 5. Verify the change by launching Qsynth, then click on “Setup...”, go to the “Settings” tab and verify that “synth.device-id” is set to **16**.
 
-If you are using another desktop environment::
+If you are using another desktop environment:
 
 1. First, you will need to copy Qsynth’s .desktop file into your local applications directory. If you installed the Flatpak version, this can be accomplished via the following command (at least on an Ubuntu-based OS), but you should verify the file paths on your system and adjust as necessary:
    ```
    cp /var/lib/flatpak/app/org.rncbc.qsynth/current/active/export/share/applications/org.rncbc.qsynth.desktop ~/.local/share/applications/
    ```
+   <div style="page-break-after: always"></div>
+   
    If you installed Qsynth via your distro’s `qsynth` package, the `.desktop` file will likely be found in `/usr/share/applications/`. So then you would instead do:
    ```
    cp /usr/share/applications/org.rncbc.qsynth.desktop ~/.local/share/applications/
@@ -782,7 +782,7 @@ This reduces the SoundFont to less than a third of its former size while soundin
 
 ## 7. Products Using GeneralUser GS
 
-GeneralUser GS has been included with countless music applications over the years. Below is a list of products I am aware of, though I'm sure there are plenty that I don't yet know about:
+GeneralUser GS has been included with countless music applications over the years. Below is a list of products I am aware of, though I‘m sure there are plenty that I don‘t yet know about:
 
 * [Ardour](https://ardour.org/) (DAW for Linux, macOS, Windows)
 * [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865) (iOS)
