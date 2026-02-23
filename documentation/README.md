@@ -1,7 +1,7 @@
 ﻿# GeneralUser GS Documentation
 
 _GeneralUser GS: **version 2.0.3** (2/22/2026)_  
-_Documentation: **revision 5** (2/22/2026)_  
+_Documentation: **revision 6** (2/23/2026)_  
 ***by S. Christian Collins***
 
 Updates to this documentation will be published on [my GeneralUser GS web page](https://www.schristiancollins.com/generaluser) and viewable online at [GitHub](https://github.com/mrbumpy409/GeneralUser-GS/blob/main/documentation/README.md).
@@ -193,8 +193,10 @@ To use GeneralUser GS with Sobanth VSTi:
 
 1. Click the “Add bank” button in the Sobanth VSTi GUI.
 2. Find and choose `GeneralUser-GS.sf2` and click “Open”.
-3. I recommend enabling “Lower volume by -6 dB” in the options at the bottom right of the plugin.
-4. Consider increasing the number of voices to 256, especially if you intend on using more than one MIDI channel simultaneously.
+3. Click on the bank filename name under “Banks”, then select the presets you would like to load into memory under “Programs”, or click the “All” checkbox if you wish to make all presets available.
+4. Select the desired preset for each MIDI channel, or leave at “(Host controlled)” if you prefer to select presets via MIDI program change.
+5. I recommend enabling “Lower volume by -6 dB” in the options at the bottom right of the plugin.
+6. Consider increasing the number of voices to 256, especially if you intend on using more than one MIDI channel simultaneously.
 
 #### 3.1.4. juicysfplugin (macOS, Windows)
 
@@ -206,8 +208,6 @@ If you want to use FluidSynth with an more conventional GUI (compared to FluidSy
 * The entire SoundFont is always loaded to RAM, even if you’re only using one preset from an otherwise enormous SoundFont.
 
 If any of the above are an issue for you, you should consider using FluidSynthPlugin (see [section 3.1.1](#311-fluidsynth-plugin-gnulinux-macos-windows) above) instead.
-
-<div style="page-break-after: always"></div>
 
 #### 3.1.5. LMMS (GNU/Linux, macOS, Windows)
 
