@@ -407,6 +407,7 @@ The following applications use FluidSynth for MIDI playback and therefore are su
 
 * [Audacious](https://audacious-media-player.org) (GNU/Linux, macOS, Windows)
 * [VLC Media Player](https://www.videolan.org/vlc) (GNU/Linux, macOS, Windows)
+* [MIDI Player](https://play.google.com/store/apps/details?id=net.volcanomobile.midiplayer) (Android)
 
 <div style="page-break-after: always"></div>
 
