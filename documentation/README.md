@@ -20,7 +20,7 @@ I decided on the name “GeneralUser” because the bank was designed to sound w
 
 ## 2. Compatibility
 
-GeneralUser GS is fully compatible with the current versions of [BASSMIDI](https://www.un4seen.com/bass.html), [FluidSynth](https://www.fluidsynth.org/), [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865), [Sobanth VSTi](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth), and [SpessaSynth](https://spessasus.github.io/SpessaSynth/). Full compatibility is also likely with any application based on one of the aforementioned players, depending on how the application has configured the underlying SoundFont engine. BASSMIDI and FluidSynth in particular are used in a lot of applications (DOSBox Staging, ScummVM, and VLC, just to name a few).
+GeneralUser GS is fully compatible with the current versions of [BASSMIDI](https://www.un4seen.com/bass.html), [FluidSynth](https://www.fluidsynth.org), [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865), [Sobanth VSTi](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth), and [SpessaSynth](https://spessasus.github.io/SpessaSynth). Full compatibility is also likely with any application based on one of the aforementioned players, depending on how the application has configured the underlying SoundFont engine. BASSMIDI and FluidSynth in particular are used in a lot of applications (DOSBox Staging, ScummVM, and VLC, just to name a few).
 
 Most other SoundFont synths will not properly render many of the presets and should be avoided. The following table shows the compatibility status of several popular SoundFont players:
 
@@ -29,14 +29,14 @@ Most other SoundFont synths will not properly render many of the presets and sho
 | Apple AUMIDISynth / DLSMusicDevice, et al. (most MIDI players on macOS/iOS)             | Awful         | The Apple SoundFont synths are an abomination, violating the spec in every way imaginable.                    |
 | [BASSMIDI](https://www.un4seen.com/bass.html) (& OmniMIDI, et al.)                      | **Excellent** | BASSMIDI v2.4.14.28 or later required. Configuration may be necessary (see [section 3.0.1](#301-bassmidi)).   |
 | [bismark bs-16i](https://www.bismark.jp/bs-16i) (Android, iOS)                          | Poor          | bs-16i cannot handle GeneralUser’s modulators, so many instruments sound incorrect.                           |
-| [FluidSynth](https://www.fluidsynth.org/) (& Qsynth, et al.)                            | **Excellent** | FluidSynth v2.3 or later recommended. See [section 3.0.2](#302-fluidsynth) for ideal settings.                |
+| [FluidSynth](https://www.fluidsynth.org) (& Qsynth, et al.)                             | **Excellent** | FluidSynth v2.3 or later recommended. See [section 3.0.2](#302-fluidsynth) for ideal settings.                |
 | [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865)                       | **Excellent** | Version 1.6 or later recommended. See [section 3.2.3](#323-kq-sampei-ios) for ideal settings.                 |
 | [MuseScore Studio 4](https://musescore.org/en)                                          | Poor          | The current version of MuseScore disables the lowpass filter, breaking many presets.                          |
 | [Sobanth VSTi](https://blog.rosseaux.net/page/e5ca75d98990e33b31dadc78a8df1333/Sobanth) | **Excellent** | Sobanth v2025.12.31.23.03.00 or later required. See [section 3.1.3](#313-sobanth-vsti-windows).               |
 | Sound Blaster Audigy / X-Fi family of sound cards                                       | Okay          | Many instruments will sound too bright due to Creative Labs’ filter implementation.                           |
 | Sound Blaster Live! family of sound cards                                               | Poor          | The Live! only supports SoundFont v2.0, but v2.01 or later is required for GeneralUser GS.                    |
-| [SpessaSynth](https://spessasus.github.io/SpessaSynth/)                                 | **Excellent** | Version v3.20.43 or later recommended.                                                                        |
-| [SynthFont](http://www.synthfont.com/), et al.                                          | Poor          | Can’t handle GeneralUser’s modulators, making quite a mess of many presets.                                   |
+| [SpessaSynth](https://spessasus.github.io/SpessaSynth)                                  | **Excellent** | Version v3.20.43 or later recommended.                                                                        |
+| [SynthFont](http://www.synthfont.com), et al.                                           | Poor          | Can’t handle GeneralUser’s modulators, making quite a mess of many presets.                                   |
 | [TinySoundFont](https://github.com/schellingb/TinySoundFont)                            | Poor          | Currently out of spec in crucial ways, no modulator support.                                                  |
 
 If you would like to test a SoundFont player for proper [specification](https://github.com/davy7125/soundfont-standard-v3/blob/master/sfspec24.pdf) support, you can use my [SoundFont Spec Implementation Test](https://github.com/mrbumpy409/SoundFont-Spec-Test).
@@ -45,7 +45,7 @@ If you would like to test a SoundFont player for proper [specification](https://
 
 Windows and Linux currently have the best application support for high quality SoundFont playback. Support on macOS is weak in comparison, with many applications opting to use macOS’ horrible native SoundFont player. As for mobile operating systems, Android has a few good options, but software for iOS is not covered in this documentation as I do not own any contemporary iOS devices for testing.
 
-As for Linux, all of the Windows applications that I list in the following sections also work quite well in [Wine](https://www.winehq.org/). I personally run the Windows VST plugins in [REAPER](https://www.reaper.fm/) via [yabridge](https://github.com/robbert-vdh/yabridge) with great success.
+As for Linux, all of the Windows applications that I list in the following sections also work quite well in [Wine](https://www.winehq.org). I personally run the Windows VST plugins in [REAPER](https://www.reaper.fm) via [yabridge](https://github.com/robbert-vdh/yabridge) with great success.
 
 ## 3. Configuration and Usage
 
@@ -242,7 +242,7 @@ The following sections start with my top recommended MIDI playback applications 
 
 #### 3.2.1. FluidSynth (GNU/Linux, macOS, Windows)
 
-[FluidSynth](https://www.fluidsynth.org/) can usually be found embedded within other applications (such as VLC) for MIDI playback, but it can also be run as a standalone MIDI player and/or virtual MIDI device. I find FluidSynth’s combination of sound and MIDI playback quality to be the best of all the options I have tried, provided you make a few tweaks.
+[FluidSynth](https://www.fluidsynth.org) can usually be found embedded within other applications (such as VLC) for MIDI playback, but it can also be run as a standalone MIDI player and/or virtual MIDI device. I find FluidSynth’s combination of sound and MIDI playback quality to be the best of all the options I have tried, provided you make a few tweaks.
 
 The player runs in a terminal window, but you can easily set it up to automatically play when double-clicking a MIDI file in your file manager. If you’d rather use something with a graphical user interface (GUI), check out the other players listed in the sections below.
 
@@ -250,11 +250,11 @@ The player runs in a terminal window, but you can easily set it up to automatica
 
 > :memo: **Note:** I have created video tutorials of the setup process for each operating system: [GNU/Linux](https://youtu.be/iNI8NuqnB6I) | [macOS](https://youtu.be/O8ZzgaGNLn0) | [Windows](https://youtu.be/hoEYha-aqnc)
 
-1. [Download](https://www.fluidsynth.org/download/) and install FluidSynth for your platform:
+1. [Download](https://www.fluidsynth.org/download) and install FluidSynth for your platform:
 
   * **Linux:** A `fluidsynth` package should be available in your distro’s repository.
-  * **macOS:** Install using [Homebrew](https://brew.sh/) (`brew install fluidsynth`) or [MacPorts](http://www.macports.org/) (`sudo port install fluidsynth`). 
-  * **Windows:** For a proper installation, I recommended installing FluidSynth via [Chocolatey](https://chocolatey.org/) (`choco install fluidsynth`). Otherwise, you can get a zip file of the [latest release here](https://github.com/FluidSynth/fluidsynth/releases), but you will need to manually extract it and move the `bin`, `include` and `lib` folders to your desired application folder (e.g., `C:\Program Files\FluidSynth`).
+  * **macOS:** Install using [Homebrew](https://brew.sh) (`brew install fluidsynth`) or [MacPorts](http://www.macports.org) (`sudo port install fluidsynth`). 
+  * **Windows:** For a proper installation, I recommended installing FluidSynth via [Chocolatey](https://chocolatey.org) (`choco install fluidsynth`). Otherwise, you can get a zip file of the [latest release here](https://github.com/FluidSynth/fluidsynth/releases), but you will need to manually extract it and move the `bin`, `include` and `lib` folders to your desired application folder (e.g., `C:\Program Files\FluidSynth`).
 
 2. Open an editor that can create plain text files. Most operating systems come with one. You will use this the editor to create a FluidSynth configuration file:
 
@@ -362,11 +362,11 @@ You can install Midi Clef Karaoke Player from the Google Play Store, and it shou
 
 #### 3.2.5. SpessaSynth (Web App)
 
-[SpessaSynth](https://spessasus.github.io/SpessaSynth/) is a web MIDI player that works great with GeneralUser GS v2.0. In fact, it currently uses GeneralUser GS by default, though the version included with the web player uses compressed audio samples (SF3 format). If you wish to have the best audio quality, you can manually upload the uncompressed SF2 file into the player.
+[SpessaSynth](https://spessasus.github.io/SpessaSynth) is a web MIDI player that works great with GeneralUser GS v2.0. In fact, it currently uses GeneralUser GS by default, though the version included with the web player uses compressed audio samples (SF3 format). If you wish to have the best audio quality, you can manually upload the uncompressed SF2 file into the player.
 
 #### 3.2.6. dmidiplayer (GNU/Linux, macOS, Windows)
 
-[Drumstick Multiplatform MIDI File Player (dmidiplayer)](https://dmidiplayer.sourceforge.io/) can play MIDI files using its internal FluidSynth engine or an external MIDI device, among other options. As of version 1.7.4, dmidiplayer contains everything you need for excellent sounding MIDI playback, if you don’t mind a few caveats:
+[Drumstick Multiplatform MIDI File Player (dmidiplayer)](https://dmidiplayer.sourceforge.io) can play MIDI files using its internal FluidSynth engine or an external MIDI device, among other options. As of version 1.7.4, dmidiplayer contains everything you need for excellent sounding MIDI playback, if you don’t mind a few caveats:
 
 1. [MIDI tempo is a bit off in some cases](https://github.com/pedrolcl/dmidiplayer/discussions/30).
 2. Slight MIDI event timing jitter even when [setting FluidSynth to use the smallest possible audio period size (64)](https://github.com/FluidSynth/fluidsynth/issues/1120). I will need to do further research and update this documentation once I know more. 
@@ -375,7 +375,7 @@ If you are put off by the idea of using FluidSynth through a terminal, dmidiplay
 
 ***Installation & Setup***
 
-1. [Download and install dmidiplayer](https://dmidiplayer.sourceforge.io/) version 1.7.4 or later.
+1. [Download and install dmidiplayer](https://dmidiplayer.sourceforge.io) version 1.7.4 or later.
 2. Start dmidiplayer.
 3. Go to “Settings” → “MIDI Setup” and set the following:
    * MIDI OUT (box 1): **FluidSynth**
@@ -392,12 +392,21 @@ If you are put off by the idea of using FluidSynth through a terminal, dmidiplay
 
 You should now be able to load and play MIDI files using dmidiplayer.
 
-#### 3.2.7. Others
+#### 3.2.7. MIDI Voyager (Android)
+
+[MIDI Voyager](https://github.com/DevanWolf/MIDI-Voyager/releases/latest) (current version is 5.4.12) is a fast MIDI player for Android that uses BASSMIDI for SoundFont playback, and supports older Android versions down to Ice Cream Sandwich.
+
+While the original developer has retired and the app is no longer available on the Play Store, a version 5.4.12 has been made based on the now-defunct MIDI Voyager Pro 5.4.11 which deprecates MIDI Voyager free, is ad-free, license-free and has BASSMIDI updated to 2.4.14.
+
+1. Replace the current SoundFont with or add a new collection using the SoundFont `GeneralUser-GS.sf2` in “Settings” → “Soundfont”.
+2. In “Effects”, set the Reverb Level to around **40%**.
+
+#### 3.2.8. Others
 
 The following applications use FluidSynth for MIDI playback and therefore are supported by GeneralUser GS. However, they do not allow customizing the reverb and chorus effects and will not sound nearly as good as the above recommended options. This will change in the future once these programs adopt FluidSynth version 2.4 or later:
 
-* [Audacious](https://audacious-media-player.org/) (GNU/Linux, macOS, Windows)
-* [VLC Media Player](https://www.videolan.org/vlc/) (GNU/Linux, macOS, Windows)
+* [Audacious](https://audacious-media-player.org) (GNU/Linux, macOS, Windows)
+* [VLC Media Player](https://www.videolan.org/vlc) (GNU/Linux, macOS, Windows)
 
 <div style="page-break-after: always"></div>
 
@@ -407,7 +416,7 @@ GeneralUser GS can be used for music playback in many retro PC games. The follow
 
 #### 3.3.1 DOSBox Staging / DOSBox-X
 
-[DOSBox Staging](https://www.dosbox-staging.org/) and [DOSBox-X](https://dosbox-x.com/) are modern forks of DOSBox. While I only use DOSBox Staging, both applications do a fantastic job of playing retro PC games. Whichever you choose, follow the application’s documentation for configuring your game(s) to use FluidSynth for MIDI playback, and then apply the following tweaks for the best sound in GeneralUser GS.
+[DOSBox Staging](https://www.dosbox-staging.org) and [DOSBox-X](https://dosbox-x.com) are modern forks of DOSBox. While I only use DOSBox Staging, both applications do a fantastic job of playing retro PC games. Whichever you choose, follow the application’s documentation for configuring your game(s) to use FluidSynth for MIDI playback, and then apply the following tweaks for the best sound in GeneralUser GS.
 
 ***DOSBox Staging***
 
@@ -451,7 +460,7 @@ If you find the game music too loud, try setting `fluid.gain` to `0.5` or lower 
 
 #### 3.3.2 ScummVM
 
-To set [ScummVM](https://www.scummvm.org/) to use GeneralUser GS for General MIDI playback:
+To set [ScummVM](https://www.scummvm.org) to use GeneralUser GS for General MIDI playback:
 
 1. Go into “Global Options...”.
 2. Select the “MIDI” tab.
@@ -486,7 +495,7 @@ A virtual MIDI device is a standalone synthesizer application that plays MIDI da
 
 If you wish to play MIDI files, you will need a player that can output MIDI to your virtual MIDI device. If you are using a virtual MIDI device for other purposes (e.g., video games), you can ignore this section. Here are a few standalone MIDI players that I have tried:
 
-* [Drumstick Multiplatform MIDI File Player (dmidiplayer)](https://dmidiplayer.sourceforge.io/) (GNU/Linux, macOS, Windows) – This is a very nice MIDI player with a simple, accessible GUI. I have found Drumstick MIDI Player to occasionally be [slightly off tempo](https://github.com/pedrolcl/dmidiplayer/discussions/30) from other players, but you may or may not notice.
+* [Drumstick Multiplatform MIDI File Player (dmidiplayer)](https://dmidiplayer.sourceforge.io) (GNU/Linux, macOS, Windows) – This is a very nice MIDI player with a simple, accessible GUI. I have found Drumstick MIDI Player to occasionally be [slightly off tempo](https://github.com/pedrolcl/dmidiplayer/discussions/30) from other players, but you may or may not notice.
 * [Ultralight MIDIPlayer](https://pipiraworld.web.fc2.com/ump/en.html) (GNU/Linux, macOS, Windows) – This player is written to be lightweight and able to handle highly complex MIDI files. It requires Java 8 to run. Under Linux, I could not get it to see my virtual MIDI devices, so I was unable to see how well it performs on that platform.
 * [Sekaiju](https://openmidiproject.opal.ne.jp/Sekaiju_en.html) (Windows) – This player is actually a full-on MIDI sequencer, but it does a great job playing MIDI files to an external MIDI source. It also runs well in Linux via Wine.
 
@@ -496,7 +505,7 @@ Now, on to the list of recommended virtual MIDI devices.
 
 #### 3.4.1. Qsynth (GNU/Linux)
 
-[Qsynth](https://qsynth.sourceforge.io/) is a graphical front-end for FluidSynth. While you can use FluidSynth (see [section 3.2.1](#321-fluidsynth-gnulinux-macos-windows)) directly as a virtual MIDI device, Qsynth makes it a lot easier to configure and tweak FluidSynth’s many settings.
+[Qsynth](https://qsynth.sourceforge.io) is a graphical front-end for FluidSynth. While you can use FluidSynth (see [section 3.2.1](#321-fluidsynth-gnulinux-macos-windows)) directly as a virtual MIDI device, Qsynth makes it a lot easier to configure and tweak FluidSynth’s many settings.
 
 <div style="page-break-after: always"></div>
 
@@ -784,12 +793,12 @@ This reduces the SoundFont to less than a third of its former size while soundin
 
 GeneralUser GS has been included with countless music applications over the years. Below is a list of products I am aware of, though I‘m sure there are plenty that I don‘t yet know about:
 
-* [Ardour](https://ardour.org/) (DAW for Linux, macOS, Windows)
+* [Ardour](https://ardour.org) (DAW for Linux, macOS, Windows)
 * [KQ Sampei](https://apps.apple.com/us/app/kq-sampei/id1626784865) (iOS)
 * [MIDI Clef Karaoke Player](https://play.google.com/store/apps/details?id=it.giccisw.midi&hl=en) (Android)
 * [Acoustica Mixcraft](https://acoustica.com/products/mixcraft) (DAW for Windows)
 * [Notation Software](https://www.notation.com/index.php) products, including Notation Composer, Notation Musician, and Notation Player. (Linux, macOS, Windows)
-* [SpessaSynth](https://spessasus.github.io/SpessaSynth/) (web app)
+* [SpessaSynth](https://spessasus.github.io/SpessaSynth) (web app)
 
 <div style="page-break-after: always"></div>
 
