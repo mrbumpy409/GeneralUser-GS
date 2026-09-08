@@ -472,7 +472,26 @@ To set [ScummVM](https://www.scummvm.org/) to use GeneralUser GS for General MID
      - Depth: **36**
      - Type: **Sine**
 
-#### 3.3.3. Virtual MIDI Devices
+
+#### 3.3.3 UZDoom
+
+Add the following to uzdoom.ini:
+
+```
+[GlobalSettings]
+fluid_chorus=true
+fluid_chorus_level=0.55
+fluid_chorus_speed=0.36
+fluid_chorus_voices=4
+fluid_chorus_depth=3.6
+fluid_reverb=true
+fluid_reverb_damping=0.3
+fluid_reverb_level=0.7
+fluid_reverb_roomsize=0.5
+fluid_reverb_width=0.8
+```
+
+#### 3.3.4. Virtual MIDI Devices
 
 If your game or emulator doesn’t have a good SoundFont player built-in, you can often set it up to send its MIDI music playback to a virtual MIDI device instead. All of my recommended virtual MIDI devices are covered in the following section.
 
